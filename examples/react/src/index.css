@@ -3,9 +3,8 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.92);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,19 +14,34 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #a78bfa;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #c4b5fd;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: url('/disney.jpg') center/cover no-repeat fixed;
+  position: relative;
+}
+
+/* Dark overlay so text remains readable */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 8, 30, 0.75);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
 }
 
 h1 {
@@ -42,27 +56,15 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: rgba(255, 255, 255, 0.06);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, background-color 0.25s;
+  color: inherit;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #a78bfa;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }
